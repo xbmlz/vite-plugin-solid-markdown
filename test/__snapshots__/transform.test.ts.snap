@@ -1,0 +1,36 @@
+// Vitest Snapshot v1
+
+exports[`transform > basic 1`] = `
+"/*@jsxRuntime automatic @jsxImportSource solid-jsx*/
+import {jsx as _jsx, jsxs as _jsxs} from \\"solid-jsx/jsx-runtime\\";
+function _createMdxContent(props) {
+  const _components = Object.assign({
+    div: \\"div\\",
+    h1: \\"h1\\",
+    ul: \\"ul\\",
+    li: \\"li\\"
+  }, props.components);
+  return _jsxs(_components.div, {
+    className: \\"markdown-body\\",
+    children: [_jsx(_components.h1, {
+      children: \\"Hello\\"
+    }), \\"\\\\n\\", _jsxs(_components.ul, {
+      children: [\\"\\\\n\\", _jsx(_components.li, {
+        children: \\"A\\"
+      }), \\"\\\\n\\", _jsx(_components.li, {
+        children: \\"B\\"
+      }), \\"\\\\n\\", _jsx(_components.li, {
+        children: \\"C\\"
+      }), \\"\\\\n\\"]
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = props.components || ({});
+  return MDXLayout ? _jsx(MDXLayout, Object.assign({}, props, {
+    children: _jsx(_createMdxContent, props)
+  })) : _createMdxContent(props);
+}
+export default MDXContent;
+"
+`;

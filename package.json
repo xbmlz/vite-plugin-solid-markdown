@@ -1,0 +1,68 @@
+{
+  "name": "vite-plugin-solid-markdown",
+  "version": "0.0.0",
+  "packageManager": "pnpm@7.4.0",
+  "description": "Compile Markdown to SolidJS component",
+  "author": "chenxc <chenxc170016@gmail.com>",
+  "license": "MIT",
+  "funding": "https://github.com/sponsors/xbmlz",
+  "homepage": "https://github.com/xbmlz/vite-plugin-solid-markdown",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xbmlz/vite-plugin-solid-markdown"
+  },
+  "type": "module",
+  "bugs": "https://github.com/xbmlz/vite-plugin-solid-markdown/issues",
+  "keywords": [
+    "vite",
+    "vite-plugin",
+    "solid-js",
+    "mdx"
+  ],
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "dev": "npm run build -- --watch",
+    "example:dev": "cp README.md example/README.md && npm -C example run dev",
+    "example:build": "cp README.md example/README.md && npm -C example run build",
+    "build": "tsup src/index.ts --dts --format cjs,esm",
+    "test": "vitest",
+    "test:update": "vitest -u",
+    "lint": "eslint .",
+    "prepublishOnly": "npm run build",
+    "release": "bumpp --commit --tag --push && npm publish"
+  },
+  "peerDependencies": {
+    "vite": "^2.0.0 || ^3.0.0-0"
+  },
+  "dependencies": {
+    "@antfu/utils": "^0.7.2",
+    "@mdx-js/mdx": "^2.1.5",
+    "@rollup/pluginutils": "^4.2.1",
+    "solid-jsx": "^0.9.1"
+  },
+  "devDependencies": {
+    "@xbmlz/eslint-config-prettier": "^0.1.16",
+    "@xbmlz/eslint-config-solid": "^0.1.16",
+    "bumpp": "^8.2.1",
+    "eslint": "^8.29.0",
+    "rollup": "^2.79.0",
+    "root": "^3.2.0",
+    "solid-js": "^1.6.5",
+    "tsup": "^6.5.0",
+    "typescript": "^4.9.4",
+    "vite": "^3.1.0",
+    "vitest": "^0.25.8"
+  }
+}
