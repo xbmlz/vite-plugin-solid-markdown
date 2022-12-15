@@ -1,0 +1,15 @@
+html,
+body,
+#app {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+
+
+pre {
+  opacity: 0.98;
+  background-color: #c8c8ff0d !important;
+  border: 1px solid #c8c8ff0d !important;
+}

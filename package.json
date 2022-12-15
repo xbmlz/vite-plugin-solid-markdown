@@ -46,7 +46,9 @@
     "vite": "^2.0.0 || ^3.0.0-0"
   },
   "dependencies": {
+    "@antfu/utils": "^0.7.2",
     "@mdx-js/mdx": "^2.1.5",
+    "remark-frontmatter": "^4.0.1",
     "solid-mdx": "^0.0.6"
   },
   "devDependencies": {

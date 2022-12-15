@@ -1,3 +1,9 @@
+import ReadMe from '../../README.md'
+
 export default function Home() {
-  return <main>Index</main>
+  return (
+    <div>
+      <ReadMe />
+    </div>
+  )
 }

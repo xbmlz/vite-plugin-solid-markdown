@@ -17,18 +17,21 @@ npm i vite-plugin-solid-markdown -D # yarn add vite-plugin-solid-markdown -D
 
 Add it to `vite.config.js`
 
+> ⚠️ Note: `md()` should be placed before `solid()`
+
+
 ```ts
 // vite.config.js
-import solidPlugin from 'solid-start/vite'
+import solid from 'solid-start/vite'
 import { defineConfig } from 'vite'
 import Markdown from 'vite-plugin-solid-markdown'
 
 export default defineConfig({
   plugins: [
-    solidPlugin({
+    md(),
+    solid({
       extensions: ['.mdx', '.md'],
     }),
-    Markdown(),
   ],
 })
 ```
@@ -39,15 +42,16 @@ And import it as a normal Solid component
 
 ```jsx
 
-import About from './about.md'
+import ReadMe from '../../README.md'
 
-export default function App() {
+export default function Home() {
   return (
     <div>
-      <About />
+      <ReadMe />
     </div>
   )
 }
+
 ```
 
 ## Use Solid Components inside Markdown
@@ -67,20 +71,16 @@ Frontmatter will be parsed and inject into Solid's instance data `frontmatter` f
 For example:
 
 ```md
----
-name: My Cool App
----
+export const name = 'My Cool App'
+export const title = 'Hello ' + name + '!'
 
-# Hello World
-
-This is {{frontmatter.name}}
+# This is {name}
 ```
 
 Will be rendered as
 
 ```html
-<h1>Hello World</h1>
-<p>This is My Cool App</p>
+<h1>This is My Cool App</h1>
 ```
 
 It will also be passed to the wrapper component's props if you have set `wrapperComponent` option.
@@ -110,11 +110,25 @@ export default defineConfig({
 
 See [the tsdoc](./src/types.ts) for more advanced options
 
+See [Rehype plugins](https://github.com/rehypejs/rehype/blob/main/doc/plugins.md#list-of-plugins) for more rehype plugins
+
+See [Remark plugins](https://github.com/remarkjs/remark/blob/main/doc/plugins.md#list-of-plugins) for more remark plugins
+
 ## Example
 
 See the [/example](./example).
 
 Or the pre-configured starter template [Vitesse](https://github.com/xbmlz/vitesse-solid).
+
+## TypeScript Shim
+
+```ts
+declare module '*.md' {
+  import type { Component } from 'solid-js'
+  const Component: Component
+  export default Component
+}
+```
 
 
 ## License
