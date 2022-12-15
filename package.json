@@ -1,6 +1,6 @@
 {
   "name": "vite-plugin-solid-markdown",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "packageManager": "pnpm@7.4.0",
   "description": "Compile Markdown to SolidJS component",
   "author": "chenxc <chenxc170016@gmail.com>",
@@ -50,7 +50,7 @@
     "@antfu/utils": "^0.7.2",
     "@mdx-js/mdx": "^2.1.5",
     "@rollup/pluginutils": "^4.2.1",
-    "solid-jsx": "^0.9.1"
+    "solid-mdx": "^0.0.6"
   },
   "devDependencies": {
     "@xbmlz/eslint-config-prettier": "^0.1.16",

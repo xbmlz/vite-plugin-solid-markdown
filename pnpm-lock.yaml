@@ -14,16 +14,16 @@ importers:
       rollup: ^2.79.0
       root: ^3.2.0
       solid-js: ^1.6.5
-      solid-jsx: ^0.9.1
+      solid-mdx: ^0.0.6
       tsup: ^6.5.0
       typescript: ^4.9.4
       vite: ^3.1.0
       vitest: ^0.25.8
     dependencies:
       '@antfu/utils': 0.7.2
-      '@mdx-js/mdx': 2.1.5
+      '@mdx-js/mdx': 2.2.1
       '@rollup/pluginutils': 4.2.1
-      solid-jsx: 0.9.1_solid-js@1.6.5
+      solid-mdx: 0.0.6_solid-js@1.6.5+vite@3.2.5
     devDependencies:
       '@xbmlz/eslint-config-prettier': 0.1.16_eslint@8.29.0
       '@xbmlz/eslint-config-solid': 0.1.16_3mqk3auojfryqdyjcayudb55ee
@@ -61,6 +61,29 @@ importers:
       typescript: 4.9.4
       vite: 3.2.5
       vite-plugin-solid-markdown: link:..
+
+  playground:
+    specifiers:
+      '@solidjs/meta': ^0.28.0
+      '@solidjs/router': ^0.5.0
+      solid-js: ^1.6.2
+      solid-start: ^0.2.0
+      solid-start-node: ^0.2.0
+      typescript: ^4.8.4
+      undici: ^5.11.0
+      vite: ^3.1.8
+      vite-plugin-solid-markdown: workspace:*
+    dependencies:
+      '@solidjs/meta': 0.28.2_solid-js@1.6.5
+      '@solidjs/router': 0.5.1_solid-js@1.6.5
+      solid-js: 1.6.5
+      solid-start: 0.2.7_jfq6s65pvyuo652ytqnpyknqye
+      undici: 5.14.0
+      vite-plugin-solid-markdown: link:..
+    devDependencies:
+      solid-start-node: 0.2.7_5rcqlkztk6lvdy7aksayuiud3e
+      typescript: 4.9.4
+      vite: 3.2.5
 
 packages:
 
@@ -1210,8 +1233,8 @@ packages:
     dependencies:
       '@hapi/hoek': 9.3.0
 
-  /@humanwhocodes/config-array/0.11.7:
-    resolution: {integrity: sha512-kBbPWzN8oVMLb0hOUYXhmxggL/1cJE6ydvjDIGi9EnAGUyA7cLVKQg+d/Dsm+KZwx2czGHrCmMVLiyg8s5JPKw==}
+  /@humanwhocodes/config-array/0.11.8:
+    resolution: {integrity: sha512-UybHIJzJnR5Qc/MsD9Kr+RpO2h+/P1GhOwdiLPXK5TWk5sgTdu88bTD9UP+CKbPPh5Rni1u0GjAdYQLemG8g+g==}
     engines: {node: '>=10.10.0'}
     dependencies:
       '@humanwhocodes/object-schema': 1.2.1
@@ -1278,8 +1301,8 @@ packages:
       type-detect: 4.0.8
     dev: true
 
-  /@mdx-js/mdx/2.1.5:
-    resolution: {integrity: sha512-zEG0lt+Bl/r5U6e0TOS7qDbsXICtemfAPquxWFsMbdzrvlWaqMGemLl+sjVpqlyaaiCiGVQBSGdCk0t1qXjkQg==}
+  /@mdx-js/mdx/2.2.1:
+    resolution: {integrity: sha512-hZ3ex7exYLJn6FfReq8yTvA6TE53uW9UHJQM9IlSauOuS55J9y8RtA7W+dzp6Yrzr00/U1sd7q+Wf61q6SfiTQ==}
     dependencies:
       '@types/estree-jsx': 1.0.0
       '@types/mdx': 2.0.3
@@ -1290,7 +1313,7 @@ packages:
       hast-util-to-estree: 2.1.0
       markdown-extensions: 1.1.1
       periscopic: 3.0.4
-      remark-mdx: 2.1.5
+      remark-mdx: 2.2.1
       remark-parse: 10.0.1
       remark-rehype: 10.1.0
       unified: 10.1.2
@@ -3183,7 +3206,7 @@ packages:
     hasBin: true
     dependencies:
       '@eslint/eslintrc': 1.3.3
-      '@humanwhocodes/config-array': 0.11.7
+      '@humanwhocodes/config-array': 0.11.8
       '@humanwhocodes/module-importer': 1.0.1
       '@nodelib/fs.walk': 1.2.8
       ajv: 6.12.6
@@ -5123,8 +5146,8 @@ packages:
     dependencies:
       jsesc: 0.5.0
 
-  /remark-mdx/2.1.5:
-    resolution: {integrity: sha512-A8vw5s+BgOa968Irt8BO7DfWJTE0Fe7Ge3hX8zzDB1DnwMZTNdK6qF2IcFao+/7nzk1vSysKcFp+3ku4vhMpaQ==}
+  /remark-mdx/2.2.1:
+    resolution: {integrity: sha512-R9wcN+/THRXTKyRBp6Npo/mcbGA2iT3N4G8qUqLA5pOEg7kBidHv8K2hHidCMYZ6DXmwK18umu0K4cicgA2PPQ==}
     dependencies:
       mdast-util-mdx: 2.0.0
       micromark-extension-mdxjs: 1.0.0
@@ -5366,13 +5389,14 @@ packages:
     dependencies:
       csstype: 3.1.1
 
-  /solid-jsx/0.9.1_solid-js@1.6.5:
-    resolution: {integrity: sha512-HHTx58rx3tqg5LMGuQnaE1vqZjpl+RMP0jYQnBkTY0xKIASVNSLZJCZoPFrpKH8wWWYyTLHdepgzs8u/e6yz5Q==}
-    engines: {node: '>=10'}
+  /solid-mdx/0.0.6_solid-js@1.6.5+vite@3.2.5:
+    resolution: {integrity: sha512-SDr+iOqxvB7ktdjrwgKLCLkJK43J+TQjoYmesHxmZHXtn6W+a5NRqWgBcybsSP0noHa2co1plSjuPYU4bdtklQ==}
     peerDependencies:
-      solid-js: ^1.4.0
+      solid-js: ^1.2.6
+      vite: '*'
     dependencies:
       solid-js: 1.6.5
+      vite: 3.2.5
     dev: false
 
   /solid-refresh/0.4.1_solid-js@1.6.5:

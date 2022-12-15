@@ -34,11 +34,14 @@ export function createMarkdown(options: ResolvedOptions) {
   return (id: string, raw: string): TransformResult => {
     const code = String(
       compileSync(raw, {
-        jsxImportSource: 'solid-jsx',
+        jsx: true,
+        jsxImportSource: 'solid-js',
+        providerImportSource: 'solid-mdx',
         rehypePlugins: [...options.rehypePlugins, rehypeWrapperClasses],
         remarkPlugins: [...options.remarkPlugins],
       })
     )
+
     return {
       code,
       map: { mappings: '' } as any,
