@@ -1,0 +1,61 @@
+// Vitest Snapshot v1
+
+exports[`transform > basic 1`] = `
+"/*@jsxRuntime automatic @jsxImportSource solid-js*/
+import {useMDXComponents as _provideComponents} from \\"solid-mdx\\";
+function _createMdxContent(props) {
+  const _components = Object.assign({
+    div: \\"div\\",
+    h1: \\"h1\\",
+    ul: \\"ul\\",
+    li: \\"li\\"
+  }, _provideComponents(), props.components);
+  return <_components.div className=\\"markdown-body\\"><_components.h1>{\\"Hello\\"}</_components.h1>{\\"\\\\n\\"}<_components.ul>{\\"\\\\n\\"}<_components.li>{\\"A\\"}</_components.li>{\\"\\\\n\\"}<_components.li>{\\"B\\"}</_components.li>{\\"\\\\n\\"}<_components.li>{\\"C\\"}</_components.li>{\\"\\\\n\\"}</_components.ul></_components.div>;
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = Object.assign({}, _provideComponents(), props.components);
+  return MDXLayout ? <MDXLayout {...props}><_createMdxContent {...props} /></MDXLayout> : _createMdxContent(props);
+}
+export default MDXContent;
+"
+`;
+
+exports[`transform > frontmatter 1`] = `
+"/*@jsxRuntime automatic @jsxImportSource solid-js*/
+import {useMDXComponents as _provideComponents} from \\"solid-mdx\\";
+function _createMdxContent(props) {
+  const _components = Object.assign({
+    div: \\"div\\",
+    p: \\"p\\"
+  }, _provideComponents(), props.components);
+  return <_components.div className=\\"markdown-body\\"><_components.p>{\\"export const name = 'My Cool App'\\\\nexport const title = 'Hello ' + name + '!'\\"}</_components.p>{\\"\\\\n\\"}<_components.p>{\\"This is \\"}{name}</_components.p></_components.div>;
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = Object.assign({}, _provideComponents(), props.components);
+  return MDXLayout ? <MDXLayout {...props}><_createMdxContent {...props} /></MDXLayout> : _createMdxContent(props);
+}
+export default MDXContent;
+"
+`;
+
+exports[`transform > jsx 1`] = `
+"/*@jsxRuntime automatic @jsxImportSource solid-js*/
+import {useMDXComponents as _provideComponents} from \\"solid-mdx\\";
+function _createMdxContent(props) {
+  const _components = Object.assign({
+    div: \\"div\\",
+    p: \\"p\\"
+  }, _provideComponents(), props.components), {Counter} = _components;
+  if (!Counter) _missingMdxReference(\\"Counter\\", true);
+  return <_components.div className=\\"markdown-body\\"><_components.p>{\\"import Counter from '~/components/Counter'\\"}</_components.p>{\\"\\\\n\\"}<Counter /></_components.div>;
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = Object.assign({}, _provideComponents(), props.components);
+  return MDXLayout ? <MDXLayout {...props}><_createMdxContent {...props} /></MDXLayout> : _createMdxContent(props);
+}
+export default MDXContent;
+function _missingMdxReference(id, component) {
+  throw new Error(\\"Expected \\" + (component ? \\"component\\" : \\"object\\") + \\" \`\\" + id + \\"\` to be defined: you likely forgot to import, pass, or provide it.\\");
+}
+"
+`;
