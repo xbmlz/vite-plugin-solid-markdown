@@ -11,7 +11,6 @@
     "type": "git",
     "url": "https://github.com/xbmlz/vite-plugin-solid-markdown"
   },
-  "type": "module",
   "bugs": "https://github.com/xbmlz/vite-plugin-solid-markdown/issues",
   "keywords": [
     "vite",
@@ -47,9 +46,7 @@
     "vite": "^2.0.0 || ^3.0.0-0"
   },
   "dependencies": {
-    "@antfu/utils": "^0.7.2",
     "@mdx-js/mdx": "^2.1.5",
-    "@rollup/pluginutils": "^4.2.1",
     "solid-mdx": "^0.0.6"
   },
   "devDependencies": {
@@ -57,12 +54,11 @@
     "@xbmlz/eslint-config-solid": "^0.1.16",
     "bumpp": "^8.2.1",
     "eslint": "^8.29.0",
-    "rollup": "^2.79.0",
-    "root": "^3.2.0",
     "solid-js": "^1.6.5",
-    "tsup": "^6.5.0",
-    "typescript": "^4.9.4",
+    "rollup": "^2.79.0",
+    "tsup": "^6.2.3",
+    "typescript": "^4.8.3",
     "vite": "^3.1.0",
-    "vitest": "^0.25.8"
+    "vitest": "^0.23.2"
   }
 }

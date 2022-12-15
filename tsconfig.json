@@ -1,15 +1,20 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
     "module": "ESNext",
-    "skipLibCheck": true,
-    "moduleResolution": "node",
+    "target": "es2017",
+    "lib": ["ESNext", "DOM"],
+    "esModuleInterop": true,
+    "strict": true,
+    "jsx": "preserve",
     "jsxImportSource": "solid-js",
     "strictNullChecks": true,
-    "jsx": "preserve",
+    "moduleResolution": "Node",
     "resolveJsonModule": true,
-    "strict": true,
-    "lib": ["DOM", "DOM.Iterable", "ESNext"]
+    "skipLibCheck": true
   },
-  "exclude": ["**/dist", "**/node_modules", "**/test"]
+  "exclude": [
+    "**/dist",
+    "**/node_modules",
+    "**/test"
+  ]
 }

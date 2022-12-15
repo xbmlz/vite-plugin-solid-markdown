@@ -1,13 +1,12 @@
-import solidPlugin from 'solid-start/vite'
+import solid from 'solid-start/vite'
 import { defineConfig } from 'vite'
-import mdx from 'vite-plugin-solid-markdown'
+import md from 'vite-plugin-solid-markdown'
 
 export default defineConfig({
   plugins: [
-    mdx(),
-    solidPlugin({
-      extensions: ['.mdx', '.md'],
-      // ssr: false,
+    md(),
+    solid({
+      extensions: ['.mdx'],
     }),
   ],
 })

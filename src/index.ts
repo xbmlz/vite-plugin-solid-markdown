@@ -1,39 +1,25 @@
-import { createFilter } from '@rollup/pluginutils'
+import { compileSync } from '@mdx-js/mdx'
 import type { Plugin } from 'vite'
-import { createMarkdown } from './markdown'
-import { resolveOptions } from './options'
-import type { Options } from './types'
+import { createFilter } from 'vite'
 
-function VitePluginSolidMarkdown(userOptions: Options = {}): Plugin {
-  const filter = createFilter(
-    userOptions.include || /\.mdx$/,
-    userOptions.exclude || /node_modules/
-  )
-
-  const options = resolveOptions(userOptions)
-  const markdownToSolid = createMarkdown(options)
-
+function VitePluginSolidMarkdown(): Plugin {
+  // mdx md files
+  const filter = createFilter('**/*.mdx', '**/node_modules/**')
   return {
     name: 'vite-plugin-solid-markdown',
     enforce: 'pre',
-    transform(raw, id) {
+    transform(raw: string, id: string) {
       if (!filter(id)) return
-
-      try {
-        return markdownToSolid(id, raw)
-      } catch (e: any) {
-        this.error(e)
-      }
-    },
-    handleHotUpdate(ctx) {
-      if (!filter(ctx.file)) return
-
-      const defaultRead = ctx.read
-      ctx.read = async function () {
-        return markdownToSolid(ctx.file, await defaultRead()).code
+      const code = compileSync(raw, {
+        jsx: true,
+        jsxImportSource: 'solid-js',
+        providerImportSource: 'solid-mdx',
+      })
+      return {
+        code: String(code),
+        map: { mappings: '' } as any,
       }
     },
   }
 }
-
 export default VitePluginSolidMarkdown
