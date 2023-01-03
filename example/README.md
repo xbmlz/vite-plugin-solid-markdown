@@ -24,7 +24,7 @@ Add it to `vite.config.js`
 // vite.config.js
 import solid from 'solid-start/vite'
 import { defineConfig } from 'vite'
-import Markdown from 'vite-plugin-solid-markdown'
+import md from 'vite-plugin-solid-markdown'
 
 export default defineConfig({
   plugins: [
@@ -64,7 +64,7 @@ import Counter from '~/components/Counter'
 <Counter />
 ```
 
-## Frontmatter [WIP]
+## Frontmatter
 
 Frontmatter will be parsed and inject into Solid's instance data `frontmatter` field.
 
@@ -108,11 +108,11 @@ export default defineConfig({
 })
 ```
 
-See [the tsdoc](./src/types.ts) for more advanced options
+See [the tsdoc](./src/types.ts) for more advanced options.
 
-See [Rehype plugins](https://github.com/rehypejs/rehype/blob/main/doc/plugins.md#list-of-plugins) for more rehype plugins
+See [Rehype plugins](https://github.com/rehypejs/rehype/blob/main/doc/plugins.md#list-of-plugins) for more rehype plugins.
 
-See [Remark plugins](https://github.com/remarkjs/remark/blob/main/doc/plugins.md#list-of-plugins) for more remark plugins
+See [Remark plugins](https://github.com/remarkjs/remark/blob/main/doc/plugins.md#list-of-plugins) for more remark plugins.
 
 ## Example
 
