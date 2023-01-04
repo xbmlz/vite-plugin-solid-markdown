@@ -3,7 +3,7 @@
   NODE_VERSION = "16"
 
 [build]
-  command = "pnpm run example:build"
+  command = "pnpm run build && pnpm run example:build"
   publish = "example/netlify"
   functions = "example/netlify/functions"
 
