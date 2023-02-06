@@ -11,7 +11,8 @@ importers:
       bumpp: ^8.2.1
       eslint: ^8.29.0
       remark-frontmatter: ^4.0.1
-      rollup: ^2.79.0
+      rollup: ^2.77.2
+      rollup-preset-solid: ^1.4.0
       solid-js: ^1.6.5
       solid-mdx: ^0.0.6
       tsup: ^6.2.3
@@ -29,6 +30,7 @@ importers:
       bumpp: 8.2.1
       eslint: 8.29.0
       rollup: 2.79.1
+      rollup-preset-solid: 1.4.0
       solid-js: 1.6.5
       tsup: 6.5.0_typescript@4.9.4
       typescript: 4.9.4
@@ -4748,6 +4750,15 @@ packages:
     resolution: {integrity: sha512-RHxMLp9lnKHGHRng9QFhRCMbYAcVpn69smSGcq3f36xjgVVWThj4qqLbTLlq7Ssj8B+fIQ1EuCEGI2lKsyQeIw==}
     dev: true
 
+  /jest-worker/26.6.2:
+    resolution: {integrity: sha512-KWYVV1c4i+jbMpaBC+U++4Va0cp8OisU185o73T1vo99hqi7w8tSJfUXYswwqqrjzwxa6KpRK54WhPvwf5w6PQ==}
+    engines: {node: '>= 10.13.0'}
+    dependencies:
+      '@types/node': 18.11.15
+      merge-stream: 2.0.0
+      supports-color: 7.2.0
+    dev: true
+
   /jiti/1.16.0:
     resolution: {integrity: sha512-L3BJStEf5NAqNuzrpfbN71dp43mYIcBUlCRea/vdyv5dW/AYa1d4bpelko4SHdY3I6eN9Wzyasxirj1/vv5kmg==}
     hasBin: true
@@ -6214,6 +6225,12 @@ packages:
   /queue-microtask/1.2.3:
     resolution: {integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==}
 
+  /randombytes/2.1.0:
+    resolution: {integrity: sha512-vYl3iOX+4CKUWuxGi9Ukhie6fsqXqS9FE2Zaic4tNFD2N2QQaXOMFbuKK4QmDHC0JO6B1Zp41J0LpT0oR68amQ==}
+    dependencies:
+      safe-buffer: 5.1.2
+    dev: true
+
   /rc/1.2.8:
     resolution: {integrity: sha512-y3bGgqKj3QBdxLbLkomlohkvsA8gdAiUQlSBJnBhfn+BPxg4bc62d8TcBW15wavDfgexCgccckhcZvywyQYPOw==}
     hasBin: true
@@ -6475,6 +6492,19 @@ packages:
       glob: 7.2.3
     dev: true
 
+  /rollup-plugin-terser/7.0.2_rollup@2.79.1:
+    resolution: {integrity: sha512-w3iIaU4OxcF52UUXiZNsNeuXIMDvFrr+ZXK6bFZ0Q60qyVfq4uLptoS4bbq3paG3x216eQllFZX7zt6TIImguQ==}
+    deprecated: This package has been deprecated and is no longer maintained. Please use @rollup/plugin-terser
+    peerDependencies:
+      rollup: ^2.0.0
+    dependencies:
+      '@babel/code-frame': 7.18.6
+      jest-worker: 26.6.2
+      rollup: 2.79.1
+      serialize-javascript: 4.0.0
+      terser: 5.16.1
+    dev: true
+
   /rollup-plugin-visualizer/5.8.3_rollup@2.79.1:
     resolution: {integrity: sha512-QGJk4Bqe4AOat5AjipOh8esZH1nck5X2KFpf4VytUdSUuuuSwvIQZjMGgjcxe/zXexltqaXp5Vx1V3LmnQH15Q==}
     engines: {node: '>=14'}
@@ -6489,6 +6519,26 @@ packages:
       rollup: 2.79.1
       source-map: 0.7.4
       yargs: 17.6.2
+
+  /rollup-preset-solid/1.4.0:
+    resolution: {integrity: sha512-rjUH0dMkyHxkin1uBcdZX110DL/P0hppMWF0RAwJdl7ly9IH/N+jHxmnyf7OzkyI2pGUBO9Lr1NN8Me9TFKN6Q==}
+    dependencies:
+      '@babel/core': 7.20.5
+      '@babel/preset-env': 7.20.2_@babel+core@7.20.5
+      '@babel/preset-typescript': 7.18.6_@babel+core@7.20.5
+      '@rollup/plugin-babel': 5.3.1_opjstonlpkhafnz76jsxdwq25a
+      '@rollup/plugin-node-resolve': 13.3.0_rollup@2.79.1
+      babel-preset-solid: 1.6.3_@babel+core@7.20.5
+      colorette: 2.0.19
+      esbuild: 0.14.54
+      merge-anything: 5.1.4
+      rollup: 2.79.1
+      rollup-plugin-terser: 7.0.2_rollup@2.79.1
+      typescript: 4.9.4
+    transitivePeerDependencies:
+      - '@types/babel__core'
+      - supports-color
+    dev: true
 
   /rollup-route-manifest/1.0.0_rollup@2.79.1:
     resolution: {integrity: sha512-3CmcMmCLAzJDUXiO3z6386/Pt8/k9xTZv8gIHyXI8hYGoAInnYdOsFXiGGzQRMy6TXR1jUZme2qbdwjH2nFMjg==}
@@ -6600,6 +6650,12 @@ packages:
     hasBin: true
     dependencies:
       lru-cache: 6.0.0
+    dev: true
+
+  /serialize-javascript/4.0.0:
+    resolution: {integrity: sha512-GaNA54380uFefWghODBWEGisLZFj00nS5ACs6yHa9nLqlLpVLO8ChDGeKRjZnV4Nh4n0Qi7nhYZD/9fCPzEqkw==}
+    dependencies:
+      randombytes: 2.1.0
     dev: true
 
   /set-blocking/2.0.0:

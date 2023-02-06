@@ -18,24 +18,32 @@
     "solid-js",
     "mdx"
   ],
+  "sideEffects": false,
+  "type": "module",
   "exports": {
     ".": {
-      "require": "./dist/index.js",
-      "import": "./dist/index.mjs"
+      "solid": "./dist/source/index.jsx",
+      "import": "./dist/esm/index.js",
+      "browser": {
+        "import": "./dist/esm/index.js",
+        "require": "./dist/cjs/index.js"
+      },
+      "require": "./dist/cjs/index.js",
+      "node": "./dist/cjs/index.js"
     }
   },
-  "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/types/index.d.ts",
   "files": [
     "dist",
     "README.md"
   ],
   "scripts": {
-    "dev": "npm run build -- --watch",
     "example:dev": "cp README.md example/README.md && npm -C example run dev",
     "example:build": "cp README.md example/README.md && npm -C example run build",
-    "build": "tsup src/index.ts --dts --format cjs,esm",
+    "build": "rollup -c",
+    "build:watch": "rollup -c -w",
     "test": "vitest",
     "test:update": "vitest -u",
     "lint": "eslint . --ext .ts,.tsx --fix",
@@ -56,7 +64,8 @@
     "@xbmlz/eslint-config-solid": "^0.1.16",
     "bumpp": "^8.2.1",
     "eslint": "^8.29.0",
-    "rollup": "^2.79.0",
+    "rollup": "^2.77.2",
+    "rollup-preset-solid": "^1.4.0",
     "solid-js": "^1.6.5",
     "tsup": "^6.2.3",
     "typescript": "^4.8.3",

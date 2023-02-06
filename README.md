@@ -1,7 +1,3 @@
-<p>
-  <img width="100%" src="https://assets.solidjs.com/banner?type=vite-plugin-solid-markdown&background=tiles&project=%20" alt="vite-plugin-solid-markdown">
-</p>
-
 # vite-plugin-solid-markdown
 
 [![NPM version](https://img.shields.io/npm/v/vite-plugin-solid-markdown)](https://www.npmjs.com/package/vite-plugin-solid-markdown)
