@@ -4,7 +4,7 @@
 
 # vite-plugin-solid-markdown
 
-[![NPM version](https://img.shields.io/npm/v/vite-plugin-solid-markdown?color=a1b858)](https://www.npmjs.com/package/vite-plugin-solid-markdown)
+[![NPM version](https://img.shields.io/npm/v/vite-plugin-solid-markdown)](https://www.npmjs.com/package/vite-plugin-solid-markdown)
 [![License](https://img.shields.io/npm/l/vite-plugin-solid-markdown)](https://npm-stat.com/charts.html?package=vite-plugin-solid-markdown)
 [![Downloads](https://img.shields.io/npm/dm/vite-plugin-solid-markdown)](LICENSE)
 
