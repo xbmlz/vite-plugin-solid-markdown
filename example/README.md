@@ -1,34 +1,138 @@
-## Usage
+# vite-plugin-solid-markdown
 
-Those templates dependencies are maintained via [pnpm](https://pnpm.io) via `pnpm up -Lri`.
+[![NPM version](https://img.shields.io/npm/v/vite-plugin-solid-markdown)](https://www.npmjs.com/package/vite-plugin-solid-markdown)
+[![License](https://img.shields.io/npm/l/vite-plugin-solid-markdown)](https://npm-stat.com/charts.html?package=vite-plugin-solid-markdown)
+[![Downloads](https://img.shields.io/npm/dm/vite-plugin-solid-markdown)](LICENSE)
 
-This is the reason you see a `pnpm-lock.yaml`. That being said, any package manager will work. This file can be safely be removed once you clone a template.
+Compile Markdown to SolidJS component.
+
+- Use Markdown as Solid components
+- Use Solid components in Markdown
+
+## Install
+
+Install
 
 ```bash
-$ npm install # or pnpm install or yarn install
+npm i vite-plugin-solid-markdown -D # yarn add vite-plugin-solid-markdown -D
 ```
 
-### Learn more on the [Solid Website](https://solidjs.com) and come chat with us on our [Discord](https://discord.com/invite/solidjs)
+Add it to `vite.config.js`
 
-## Available Scripts
+> ⚠️ Note: `md()` should be placed before `solid()`
 
-In the project directory, you can run:
 
-### `npm run dev` or `npm start`
+```ts
+// vite.config.js
+import solid from 'solid-start/vite'
+import { defineConfig } from 'vite'
+import md from 'vite-plugin-solid-markdown'
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+export default defineConfig({
+  plugins: [
+    md(),
+    solid({
+      extensions: ['.mdx', '.md'],
+    }),
+  ],
+})
+```
 
-The page will reload if you make edits.<br>
+And import it as a normal Solid component
 
-### `npm run build`
+## Import Markdown as Solid components
 
-Builds the app for production to the `dist` folder.<br>
-It correctly bundles Solid in production mode and optimizes the build for the best performance.
+```jsx
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+import ReadMe from '../../README.md'
 
-## Deployment
+export default function Home() {
+  return (
+    <div>
+      <ReadMe />
+    </div>
+  )
+}
 
-You can deploy the `dist` folder to any static host provider (netlify, surge, now, etc.)
+```
+
+## Use Solid Components inside Markdown
+
+You can even use Solid components inside your markdown, for example
+
+```mdx
+import Counter from '~/components/Counter'
+
+<Counter />
+```
+
+## Frontmatter
+
+Frontmatter will be parsed and inject into Solid's instance data `frontmatter` field.
+
+For example:
+
+```md
+export const name = 'My Cool App'
+export const title = 'Hello ' + name + '!'
+
+# This is {name}
+```
+
+Will be rendered as
+
+```html
+<h1>This is My Cool App</h1>
+```
+
+It will also be passed to the wrapper component's props if you have set `wrapperComponent` option.
+
+## Options
+
+```ts
+// vite.config.js
+import solidPlugin from 'solid-start/vite'
+import { defineConfig } from 'vite'
+import Markdown from 'vite-plugin-solid-markdown'
+import remarkPrism from 'remark-prism'
+
+export default defineConfig({
+  plugins: [
+    solidPlugin({
+      extensions: ['.mdx', '.md'],
+    }),
+    Markdown({
+      wrapperClasses: 'prose prose-sm m-auto text-left',
+      remarkPlugins: [remarkPrism],
+      // more options will be added in the future
+    }),
+  ],
+})
+```
+
+See [the tsdoc](./src/types.ts) for more advanced options.
+
+See [Rehype plugins](https://github.com/rehypejs/rehype/blob/main/doc/plugins.md#list-of-plugins) for more rehype plugins.
+
+See [Remark plugins](https://github.com/remarkjs/remark/blob/main/doc/plugins.md#list-of-plugins) for more remark plugins.
+
+## Example
+
+See the [/example](./example).
+
+Or the pre-configured starter template [Vitesse](https://github.com/xbmlz/vitesse-solid).
+
+## TypeScript Shim
+
+```ts
+declare module '*.md' {
+  import type { Component } from 'solid-js'
+  const Component: Component
+  export default Component
+}
+```
+
+
+## License
+
+MIT License © 2020-PRESENT [xbmlz](https://github.com/xbmlz)
