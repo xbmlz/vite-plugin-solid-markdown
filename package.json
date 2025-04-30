@@ -1,7 +1,7 @@
 {
   "name": "vite-plugin-solid-markdown",
   "version": "0.0.6",
-  "packageManager": "pnpm@7.4.0",
+  "packageManager": "pnpm@10.10.0",
   "description": "Compile Markdown to SolidJS component",
   "author": "chenxc <chenxc170016@gmail.com>",
   "license": "MIT",
@@ -21,24 +21,34 @@
   "sideEffects": false,
   "type": "module",
   "exports": {
-    ".": {
-      "solid": "./dist/source/index.jsx",
-      "import": "./dist/esm/index.js",
-      "browser": {
-        "import": "./dist/esm/index.js",
-        "require": "./dist/cjs/index.js"
+    "solid": {
+      "development": "./dist/source/index.jsx",
+      "import": "./dist/source/index.jsx"
+    },
+    "development": {
+      "import": {
+        "types": "./dist/types/index.d.ts",
+        "default": "./dist/esm/index.js"
       },
-      "require": "./dist/cjs/index.js",
-      "node": "./dist/cjs/index.js"
-    }
+      "require": "./dist/cjs/index.js"
+    },
+    "import": {
+      "types": "./dist/types/index.d.ts",
+      "default": "./dist/esm/index.js"
+    },
+    "require": "./dist/cjs/index.js"
   },
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/types/index.d.ts",
   "files": [
     "dist",
+    "src",
     "README.md"
   ],
+  "engines": {
+    "node": ">=16.0.0"
+  },
   "scripts": {
     "example:dev": "cp README.md example/README.md && npm -C example run dev",
     "example:build": "cp README.md example/README.md && npm -C example run build",
@@ -51,25 +61,26 @@
     "release": "bumpp --commit --tag --push && npm publish"
   },
   "peerDependencies": {
-    "vite": "^2.0.0 || ^3.0.0-0 || ^4.0.0-0"
+    "vite": "^3.1.0 || ^4.0.0 || ^5.0.0 || ^6.0.0"
   },
   "dependencies": {
-    "@antfu/utils": "^0.7.2",
-    "@mdx-js/mdx": "^2.1.5",
-    "remark-frontmatter": "^4.0.1",
-    "solid-mdx": "^0.0.6"
+    "@antfu/utils": "^9.2.0",
+    "@mdx-js/mdx": "^3.1.0",
+    "remark-frontmatter": "^5.0.0",
+    "solid-mdx": "^0.0.7"
   },
   "devDependencies": {
-    "@xbmlz/eslint-config-prettier": "^0.1.16",
-    "@xbmlz/eslint-config-solid": "^0.1.16",
-    "bumpp": "^8.2.1",
-    "eslint": "^8.29.0",
-    "rollup": "^2.77.2",
-    "rollup-preset-solid": "^1.4.0",
-    "solid-js": "^1.6.5",
-    "tsup": "^6.2.3",
-    "typescript": "^4.8.3",
-    "vite": "^3.1.0",
-    "vitest": "^0.23.2"
+    "@xbmlz/eslint-config-prettier": "^0.1.17",
+    "@xbmlz/eslint-config-solid": "^0.1.17",
+    "bumpp": "^10.1.0",
+    "eslint": "^9.25.1",
+    "rollup": "^4.40.1",
+    "rollup-preset-solid": "^3.0.0",
+    "solid-js": "^1.9.5",
+    "tsup": "^8.4.0",
+    "typescript": "^5.8.3",
+    "unified": "^11.0.5",
+    "vite": "^6.3.3",
+    "vitest": "^3.1.2"
   }
 }

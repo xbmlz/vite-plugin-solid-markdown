@@ -2,6 +2,13 @@
 title: hello world
 ---
 
+import Counter from './components/Counter'
+import { A } from '@solidjs/router'
+
+
+<A href="/">Home</A>|
+<A href="/about">About</A>
+
 # Hello World
 
 export const name = 'My Cool App'
@@ -9,7 +16,8 @@ export const title = 'Hello ' + name + '!'
 
 This is {name}
 
-import Counter from '~/components/Counter'
+
+
 
 <Counter />
 
@@ -20,4 +28,3 @@ function vitesse() {
   console.log(foo)
 }
 ```
-

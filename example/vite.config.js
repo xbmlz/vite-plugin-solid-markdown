@@ -1,11 +1,9 @@
-import solid from 'solid-start/vite'
 import { defineConfig } from 'vite'
-import unocss from 'unocss/vite'
-import md from 'vite-plugin-solid-markdown'
+import solidPlugin from 'vite-plugin-solid'
 import remarkGfm from 'remark-gfm'
 import rehypePrettyCode from 'rehype-pretty-code'
-// @ts-expect-error - missing types
-import netlifyAdapter from 'solid-start-netlify'
+import Unocss from 'unocss/vite'
+import md from '../src/index'
 
 export default defineConfig({
   plugins: [
@@ -21,13 +19,15 @@ export default defineConfig({
       ],
       remarkPlugins: [remarkGfm],
     }),
-    solid({
+    solidPlugin({
       extensions: ['.mdx', '.md'],
-      adapter: netlifyAdapter(),
     }),
-    unocss(),
+    Unocss(),
   ],
+  server: {
+    port: 3000,
+  },
   build: {
     target: 'esnext',
   },
-})
+});

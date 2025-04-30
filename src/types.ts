@@ -1,4 +1,4 @@
-import type { PluggableList } from '@mdx-js/mdx/lib/core'
+import { PluggableList } from 'unified'
 import type { FilterPattern } from 'vite'
 
 export interface Options {
